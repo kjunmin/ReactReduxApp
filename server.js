@@ -16,7 +16,7 @@ app.get('/getService', (req, res) => {
   const uri = "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139";
 
   const headers = {
-      AccountKey: "BmqGtEubS/qLKhoL8I1g9A==",
+      AccountKey: "*",
       accept: "application/json"
   }
 
