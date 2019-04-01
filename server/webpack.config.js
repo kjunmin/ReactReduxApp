@@ -1,11 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const NodemonPlugin = require('nodemon-webpack-plugin')
 
 module.exports = {
   entry: {
-    server: './server.js',
+    server: './src/server.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -38,6 +38,15 @@ module.exports = {
         test: /\.html$/,
         use: [{loader: "html-loader"}]
       }
+      
     ]
+  },
+  plugins: [
+    new NodemonPlugin()
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, '/src'), //serve your static files from here
+    watchContentBase: true,
+    port: 5000,
   }
 }
